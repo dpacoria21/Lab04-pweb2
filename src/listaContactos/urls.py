@@ -32,4 +32,5 @@ urlpatterns = [
     path('agregar/', personaCreateView, name='createPersona'),
     path('search/', searchForHelp, name='buscar'),
     path('anotherAdd/', personasAnotherCreateView, name='otroAgregarPersona'),
+    path('showPerson/<int:myID>/', personasShowObject, name='mostrarObjeto'),
 ]
