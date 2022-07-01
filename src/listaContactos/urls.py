@@ -34,4 +34,5 @@ urlpatterns = [
     path('anotherAdd/', personasAnotherCreateView, name='otroAgregarPersona'),
     path('showPerson/<int:myID>/', personasShowObject, name='mostrarObjeto'),
     path('showPerson/<int:myID>/delete/', personasDeleteView, name='Borrar'),
+    path('personas/', personasListView, name='listing'),
 ]
