@@ -11,9 +11,12 @@
             {{myText}},
             {{myNumber}}
         </p>
+        <li>{{ forloop.parentloop }} - {{ myItem }}</li>
         <ul>
             {% for myItem in myList %}
-                <li>{{ forloop.last }} - {{ myItem }}</li>
+                {% for myLeter in mySecondList %}
+                    <li>{{myItem}} - {{forloop.parentloop.counter}}</li>
+                {% endfor %}
             {% endfor %}
         </ul>
         {{ request.user }}
