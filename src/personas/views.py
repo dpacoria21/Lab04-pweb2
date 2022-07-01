@@ -1,5 +1,5 @@
 from multiprocessing import context
-from django.shortcuts import render, get_object_or_404
+from django.shortcuts import render, get_object_or_404, redirect
 from .models import Persona
 from .forms import PersonaForm, RawPersonaForm
 
@@ -47,3 +47,14 @@ def personasShowObject(request, myID):
         'objeto' : obj,
     }
     return render(request, 'personas/descripcion.html', context)
+
+def personasDeleteView(request, myID):
+    obj = get_object_or_404(Persona, id=myID)
+    if request.method == 'POST':
+        print('Lo borro ahora')
+        obj.delete()
+        return redirect('../../../miPagina/')
+    context = {
+        'objeto': obj,
+    }
+    return render(request, 'personas/personasBorrar.html', context)
