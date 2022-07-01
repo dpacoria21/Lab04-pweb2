@@ -6,11 +6,4 @@
     <input type="submit" value="Grabar"/>
 </form>
 
-<br><br><br>
-
-<form method="POST"> {% csrf_token %}
-    {{ form.as_table }}
-    <input type="submit" value="Grabar"/>
-</form>
-
 {% endblock %}
