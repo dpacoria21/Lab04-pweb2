@@ -1,5 +1,5 @@
 from multiprocessing import context
-from django.shortcuts import render
+from django.shortcuts import render, get_object_or_404
 from .models import Persona
 from .forms import PersonaForm, RawPersonaForm
 
@@ -42,7 +42,7 @@ def personasAnotherCreateView(request):
     return render(request, 'personas/personasCreate2.html', context)
 
 def personasShowObject(request, myID):
-    obj = Persona.objects.get(id = myID)
+    obj = get_object_or_404(Persona, id=myID)
     context = {
         'objeto' : obj,
     }
