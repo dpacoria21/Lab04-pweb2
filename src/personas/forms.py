@@ -26,3 +26,11 @@ class RawPersonaForm(forms.Form):
     apellidos = forms.CharField()
     edad = forms.IntegerField(initial=20)
     donador = forms.BooleanField()
+    def clean_nombre(self, *args, **kwargs):
+        print('paso')
+        name = self.cleaned_data.get('nombre')
+        if name.istitle():
+            return name
+        else:
+            raise forms.ValidationError('La primera letra en mayuscula')
+    
