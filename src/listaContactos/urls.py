@@ -19,8 +19,8 @@ from inicio.views import myHomeView
 from inicio.views import anotherView
 from inicio.views import mipageView
 from inicio.views import baseView
-from personas.views import personaTestView
-from personas.views import personaCreateView
+from personas.views import personaTestView, personaCreateView, searchForHelp
+
 
 urlpatterns = [
     path('admin/', admin.site.urls),
@@ -29,5 +29,6 @@ urlpatterns = [
     path('miPagina/', mipageView, name='Uso de tags'),
     path('paginaBase/', baseView, name='Pagina Base'),
     path('persona/', personaTestView, name='testViewPersona'),
+    path('search', searchForHelp, name='buscar'),
     path('agregar/', personaCreateView, name='createPersona'),
 ]
