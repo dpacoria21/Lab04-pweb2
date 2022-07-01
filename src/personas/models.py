@@ -1,5 +1,6 @@
 from sys import maxsize
 from django.db import models
+from django.urls import reverse
 
 # Create your models here.
 # 2do commit
@@ -10,5 +11,5 @@ class Persona(models.Model):
     donador = models.BooleanField()
 
     def get_absolute_url(self):
-        return "/showPerson/" + str(self.id) + "/"
+        return reverse('browsing', kwargs={'myID': self.id})
     

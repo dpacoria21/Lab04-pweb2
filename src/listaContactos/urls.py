@@ -21,7 +21,6 @@ from inicio.views import mipageView
 from inicio.views import baseView
 from personas.views import *
 
-
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('', myHomeView, name='Pagina de Inicio'),
@@ -32,7 +31,7 @@ urlpatterns = [
     path('agregar/', personaCreateView, name='createPersona'),
     path('search/', searchForHelp, name='buscar'),
     path('anotherAdd/', personasAnotherCreateView, name='otroAgregarPersona'),
-    path('showPerson/<int:myID>/', personasShowObject, name='mostrarObjeto'),
+    path('showPerson/<int:myID>/', personasShowObject, name='browsing'),
     path('showPerson/<int:myID>/delete/', personasDeleteView, name='Borrar'),
     path('personas/', personasListView, name='listing'),
 ]
