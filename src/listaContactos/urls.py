@@ -29,6 +29,6 @@ urlpatterns = [
     path('miPagina/', mipageView, name='Uso de tags'),
     path('paginaBase/', baseView, name='Pagina Base'),
     path('persona/', personaTestView, name='testViewPersona'),
-    path('search', searchForHelp, name='buscar'),
     path('agregar/', personaCreateView, name='createPersona'),
+    path('search/', searchForHelp, name='buscar'),
 ]
