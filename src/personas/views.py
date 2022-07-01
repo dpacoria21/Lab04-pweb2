@@ -25,9 +25,11 @@ def personasAnotherCreateView(request):
     form = RawPersonaForm()
     if request.method == "POST":
        form = RawPersonaForm(request.POST)
-       print('here!') 
+       if form.is_valid():
+        print(form.cleaned_data)
+       else:
+        print(form.errors)
     context = {
         'form':form,
     }
-    print(form)
     return render(request, 'personas/personasCreate2.html', context)
