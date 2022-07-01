@@ -8,16 +8,13 @@
         <h1>Hola Mundo desde DJango</h1>
         <h2>con Templates</h2>
         <p>
-            {{myText}},
+            {{myText|upper}},
             {{myNumber}}
         </p>
         <li>{{ forloop.parentloop }} - {{ myItem }}</li>
         <ul>
             {% for myItem in myList %}
-                <li>{{ forloop.counter }} - {{ myItem }}
-                {% ifchanged myItem %}
-                    <li> -Se ha cambiado el valor</li>
-                {% endifchanged %}
+                <li>{{ forloop.counter }} - {{ myItem|add:"2" }}
                 {% if myItem == 33 %}
                     -Este numero es magico
                 {% elif myItem > 50 %}
