@@ -11,9 +11,11 @@ def personaTestView(request):
     return render(request, 'personas/test.html', context)
 
 def personaCreateView(request):
-    print('GET: ', request.GET)
-    print('POST: ', request.POST)
-    context={}
+    print(request)
+    if request.method == 'POST':
+        nombre = request.POST.get('q')
+        print(nombre)
+    context = {}
     return render(request, 'personas/personasCreate.html', context)
 
 def searchForHelp(request):
