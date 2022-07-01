@@ -8,7 +8,7 @@
         <h1>Hola Mundo desde DJango</h1>
         <h2>con Templates</h2>
         <p>
-            {{myText|upper}},
+            {{myText|upper|truncatechars:"16"}},
             {{myNumber}}
         </p>
         <li>{{ forloop.parentloop }} - {{ myItem }}</li>
@@ -17,6 +17,8 @@
                 <li>{{ forloop.counter }} - {{ myItem|add:"2" }}
                 {% if myItem == 33 %}
                     -Este numero es magico
+                {% elif myItem|divisibleby:"2" %}
+                    -Este es un numero par
                 {% elif myItem > 50 %}
                     -este numero es mayor que 50
                 {% endif %}
