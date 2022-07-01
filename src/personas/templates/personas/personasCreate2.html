@@ -1,7 +1,16 @@
 {% extends 'base.html' %}
 {% block content %}
+
 <form method="POST"> {% csrf_token %}
-    {{ form.as_p }}
+    {{ form.as_ul }}
     <input type="submit" value="Grabar"/>
 </form>
+
+<br><br><br>
+
+<form method="POST"> {% csrf_token %}
+    {{ form.as_table }}
+    <input type="submit" value="Grabar"/>
+</form>
+
 {% endblock %}
