@@ -11,6 +11,11 @@
             {{myText}},
             {{myNumber}}
         </p>
+        <ul>
+            {% for myItem in myList %}
+                <li>{{ myItem }}</li>
+            {% endfor %}
+        </ul>
         {{ request.user }}
         <br>
         {{ request.user.is_authenticated }}

@@ -7,6 +7,7 @@ def myHomeView(request,*args, **kwargs):
     myContext = {
         'myText' : 'Esto es sobre nosotros',
         'myNumber' : 123,
+        'myList' : [33, 44, 55],
     }
     print(args, kwargs)
     print(request.user)
