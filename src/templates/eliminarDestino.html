@@ -1,0 +1,53 @@
+{% load static %}
+{% static "images" as baseUrl %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" type="text/css" href="{% static 'styles/estilos.css'%}">
+    <style>
+        .boton{
+            
+            width: 67px;
+            font-family: Arial, Helvetica, sans-serif;
+            font-weight: 700;
+            border-radius: 10px;
+            margin: 150px 150px;
+            padding: 15px 70px;
+            background-color: blue;
+            color: white;
+            text-decoration: none;
+        }
+    </style>
+</head>
+<body style="background-color: skyblue;">
+    <div class="container">
+        <div class="card" style="background-color: white;">
+            <img src="{{dest.img.url}}" alt="image">
+            {% if dest.offer == True %}
+            <h4 class="spec_offer text-center"><a href="#">Special Offer</a></h4>
+            {% else %}
+            <h4 class="spec_offer text-center"><a href="#">No Special Offer</a></h4>
+            {% endif %}
+            <h4><a href="destinations.html">{{dest.name}}</a>
+            </h4>
+            <p>{{dest.desc}}</p>
+            <h4>From ${{dest.price}}</h4>
+            <h4 class="destination_title"><a href="modDestino/{{dest.id}}">Modificar Archivo</a></h4>
+            <h4 class="destination_title"><a href="eliminarDestino/{{dest.id}}">Eliminar Archivo</a></h4>
+        </div>
+    </div>
+    <br><br>
+    <div style="text-align: center;">
+        <form action="/eliminarDestino/{{dest.id}}" method="POST"> {% csrf_token %}
+            <h1>ESTA SEGURO QUE DESEA ELIMINARLO?</h1>
+            <input class="boton" type="submit" value="Si">
+            <a class="boton" href="/listarDestinos">NO</a>
+        </form>
+    </div>
+</body>
+</html>
