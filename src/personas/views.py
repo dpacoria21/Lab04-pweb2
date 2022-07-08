@@ -1,4 +1,6 @@
 from dataclasses import fields
+from http.client import HTTPResponse
+from django.http import HttpResponse
 from multiprocessing import context
 from django.shortcuts import render, get_object_or_404, redirect
 from .models import Persona
@@ -9,6 +11,7 @@ from django.views.generic import (
     CreateView,
     UpdateView,
     DeleteView,
+    View,
 )
 from django.urls import reverse_lazy
 
@@ -41,6 +44,10 @@ class PersonaUpdateView(UpdateView):
 class PersonaDeleteView(DeleteView):
     model = Persona
     success_url = reverse_lazy('auxiliar:persona-list')
+
+class PersonaQueryView(View):
+    def get(self, request, *args, **kwargs):
+        return HttpResponse('Hola Mundo CON Clases')
 
 def personaTestView(request):
     obj = Persona.objects.get(id = 1)
