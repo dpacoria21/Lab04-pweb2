@@ -1,3 +1,4 @@
+from dataclasses import fields
 from multiprocessing import context
 from django.shortcuts import render, get_object_or_404, redirect
 from .models import Persona
@@ -5,6 +6,7 @@ from .forms import PersonaForm, RawPersonaForm
 from django.views.generic import (
     ListView,
     DetailView,
+    CreateView,
 )
 
 # Create your views here.
@@ -14,6 +16,15 @@ class PersonaListView(ListView):
     
 class PersonaDetailView(DetailView):
     model = Persona
+
+class PersonaCreateView(CreateView):
+    model = Persona
+    fields = [
+        'nombre',
+        'apellidos',
+        'edad',
+        'donador',
+    ]
 
 def personaTestView(request):
     obj = Persona.objects.get(id = 1)
