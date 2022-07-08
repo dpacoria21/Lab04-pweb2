@@ -8,6 +8,9 @@ from personas.views import (
     personasAnotherCreateView,
     searchForHelp
 )
+from .views import (
+    PersonaListView,
+)
 
 app_name = 'auxiliar'
 
@@ -19,4 +22,5 @@ urlpatterns = [
     path('<int:myID>/delete/', personasDeleteView, name='deleting'),
     path('', personasListView, name = 'listing'),
     path('search/', searchForHelp, name='buscar'),
+    path('listar', PersonaListView.as_view(), name='persona-list'),
 ]
