@@ -14,6 +14,7 @@ from django.views.generic import (
     View,
 )
 from django.urls import reverse_lazy
+from django.http import JsonResponse
 
 # Create your views here.
 
@@ -47,7 +48,8 @@ class PersonaDeleteView(DeleteView):
 
 class PersonaQueryView(View):
     def get(self, request, *args, **kwargs):
-        return HttpResponse('Hola Mundo CON Clases')
+        queryset = Persona.objects.filter(edad__lte='40')
+        return JsonResponse(list(queryset.values()), safe=False)
 
 def personaTestView(request):
     obj = Persona.objects.get(id = 1)
